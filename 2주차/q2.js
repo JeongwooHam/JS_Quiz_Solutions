@@ -25,3 +25,5 @@ function division(num) {
 }
 
 console.log(division(3));
+
+// Array.from 사용해서 다시 풀어보기
