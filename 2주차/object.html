@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="object.css" />
+    <script>
+      let day = new Date();
+      let year = day.getFullYear();
+      let month = day.getMonth();
+      let date = day.getDate();
+
+      // 오늘의 썸트렌드
+      function todaysSometrend() {
+        let todaysSometrend = {
+          today: `${year}.${month}.${date}`,
+          content1: {
+            contentMonth: 04,
+            contentDate: 06,
+            contentDay: "목",
+            title: "더현대 서울에 대한 서울 VS 지방의 생각 차이는?",
+            bgImg:
+              "https://static.some.co.kr/sometrend/attachments/content/dbd94917-c6a8-4dd4-a699-f1545465d441/750_380 (375_190) (3).jpg",
+            contentLink:
+              "https://m.some.co.kr/contents/detail/SmFymVKm?startPage=1&cornerType=LIFE_OBSERVATORY",
+          },
+          content2: {
+            contentMonth: 04,
+            contentDate: 05,
+            contentDay: "수",
+            title: "'BTS 지민, 빌보드 찢었다' 핫 100 1위 ... K팝 솔로 최초",
+            bgImg:
+              "	https://static.some.co.kr/sometrend/attachments/co…5-a5c7-7d9150d1298c/750_380%20(375_190)%20(3).jpg",
+            contentLink:
+              "https://some.co.kr/contents/detail/x2L1cNT1?startPage=1&cornerType=AI_REPORT",
+          },
+          content3: {
+            contentMonth: 04,
+            contentDate: 03,
+            contentDay: "월",
+            title: "이번에는 4050 트렌드다! 4050 소셜 트렌드 리포트",
+            bgImg:
+              "https://static.some.co.kr/sometrend/attachments/content/b6ef8a33-fc0f-42b6-a83c-1070ebf5bb69/750_380 (375_190) (3).jpg",
+            contentLink:
+              "https://some.co.kr/contents/detail/OrDUAOpf?startPage=1&cornerType=AI_REPORT",
+          },
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <div id="top">
+      <h3>오늘의 썸트렌드</h3>
+      <p id="date">date</p>
+    </div>
+    <div id="contents">
+      <div id="content1" class="content">content1</div>
+      <div id="content2" class="content">content2</div>
+      <div id="content3" class="content">content3</div>
+    </div>
+  </body>
+</html>

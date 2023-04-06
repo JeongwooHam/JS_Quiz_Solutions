@@ -1,0 +1,14 @@
+* {
+  margin: 0 5%;
+}
+
+#top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3%;
+}
+
+#contents {
+  display: flex;
+  justify-content: space-between;
+}
