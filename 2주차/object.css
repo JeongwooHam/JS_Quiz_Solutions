@@ -12,3 +12,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.content {
+  width: 100px;
+}
+
+.contentTitle {
+  font-size: 10px;
+  margin-top: 10%;
+}
