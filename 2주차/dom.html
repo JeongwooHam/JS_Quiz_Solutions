@@ -93,9 +93,9 @@
     for (let i = 0; i < $selected.length; i++) {
       let tabText = [...$selected[i].textContent];
 
-      // 선택한 탭만만 색상 변경
+      // 선택한 탭만 색상 변경
       $selected[i].addEventListener("click", function () {
-        console.log($selected[i]);
+        // console.log($selected[i]);
         // 변경된 내용 삭제
         // tab) classList.remove("selected")
         $selected.forEach((tab) => {
