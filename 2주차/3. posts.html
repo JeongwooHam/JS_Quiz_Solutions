@@ -31,31 +31,43 @@
     ];
 
     // postArr 반복/순회
+
+    // renderPost 함수에 posts 배열을 담으면
     function renderPost(postArr) {
+      // posts의 각 객체들(post)을 HTML 형식으로 바꿔줌
       const postHTML = postArr
         .map(
-          (post) => `<div data-role = ${post.id}>
-            <div>${post.title}</div><div>${post.content}</div>
+          (post) => `<div data-role = ${opost.id}>
+            <div>${post.title}</div><div>${pst.content}</div>
             <button class="delete-post-btn">삭제</button>
         </div>`
         )
         .join("");
+      // 실제 HTML 파일에 담아줌
       $postList.innerHTML = postHTML;
 
+      // 파일 삭제하기
       const $deletePostBtn = document.querySelectorAll(".delete-post-btn");
       console.log($deletePostBtn);
+
       // 삭제 시 겹치지 않는 PK값을 주어야 함 (id)
       // getAttribute를 사용해 data-role의 값을 꺼내어 쓸 수 있음
 
+      // 각 post의 버튼마다 아래의 클릭 이벤트 부여
       $deletePostBtn.forEach((btn) => {
+        // 클릭할때마다 대상 parentNode에서 data-role 속성을 가져옴
         btn.addEventListener("click", (e) => {
           console.log(e.target.parentNode);
           const parent = e.target.parentNode;
           const targetId = parent.getAttribute("data-role");
+
+          // 가져온 data-role 속성을 정수로 변환한 것이 클릭된 삭제 버튼이 포함된 post의 id와 일치하는 경우 삭제
           // id가 삭제한 post의 id와 다른 post들만 담긴 새로운 배열 생성
           const deletePost = posts.filter(
             (post) => post.id !== parseInt(targetId)
           );
+
+          // 원본 배열을 새로운 배열로 덮어씀
           posts = deletePost;
           renderPost(deletePost);
           /*

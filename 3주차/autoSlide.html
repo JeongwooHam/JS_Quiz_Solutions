@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banner</title>
+    <style>
+      /*glboal*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /*common*/
+      .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /*banner*/
+      .banner-box {
+        width: 1080px;
+        border: 1px solid #000;
+        margin: 1rem auto;
+        overflow: hidden;
+      }
+
+      .banner-item {
+        min-width: 100%;
+        height: 300px;
+        background-color: #ffdeb4;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .banner-list > li:nth-of-type(2) {
+        background-color: #ffb4b4;
+      }
+
+      .banner-list > li:nth-of-type(3) {
+        background-color: #beb4fa;
+      }
+
+      /*slide*/
+      #slide-banner > ul {
+        width: 100%;
+        display: flex;
+      }
+      .animated {
+        transition: transform 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Banner</h2>
+
+    <!-- slide banner-->
+    <div id="slide-banner" class="banner-box">
+      <ul class="banner-list animated">
+        <li class="banner-item flex-center">1</li>
+        <li class="banner-item flex-center">2</li>
+        <li class="banner-item flex-center">3</li>
+      </ul>
+      <div>
+        <button class="slide-prev-btn">prev</button>
+        <button class="slide-next-btn">next</button>
+      </div>
+    </div>
+
+    <marquee>안녕하세요</marquee>
+    <script>
+      // slideBanner 과제
+      const $slideContainer = document.querySelector("#slide-banner > ul");
+      const $slideBanner = document.querySelectorAll("#slide-banner > ul > li");
+      const $slideWidth = 1078;
+
+      const $prevBtn = document.querySelector(".slide-prev-btn");
+      const $nextBtn = document.querySelector(".slide-next-btn");
+
+      let slideIndex = 0;
+
+      // 무한슬라이드
+      // num으로 주어진 인덱스 * slideWidth 만큼 왼쪽/오른쪽으로 이동시키기
+      function slide(num) {
+        $slideContainer.style.transform = `translateX(${$slideWidth * -num}px)`;
+        slideIndex = num;
+        console.log(slideIndex);
+      }
+
+      // 자동슬라이드(선택. setInterval/setTimeOut)
+      function autoSlide() {
+        slide(slideIndex + 1);
+        if (slideIndex >= $slideBanner.length - 1) {
+          setTimeout(() => {
+            slideIndex = -1;
+          }, 100);
+        }
+      }
+
+      function autoSliding() {
+        setInterval(autoSlide, 3000);
+      }
+
+      autoSliding();
+    </script>
+  </body>
+</html>

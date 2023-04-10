@@ -130,7 +130,7 @@ console.log(resultOfFilter);
 
 console.log("============================================================");
 
-// 3. find (#제목에 애플페이가 들어가는 게시물 찾기)
+// 3. find (제목에 애플페이가 들어가는 게시물 찾기)
 const resultOfFind = sometrend.find((el) => el.title.includes("애플페이"));
 console.log(resultOfFind);
 
@@ -159,6 +159,8 @@ const resultOfSort = sometrend.sort((a, b) => b.date - a.date);
 console.log(resultOfSort);
 
 console.log("============================================================");
+
+// post 부분 이해하고 다시 만들기
 
 // 8. 게시물 추가하기
 const newContent = {
