@@ -2,6 +2,7 @@
 
 let sometrend = [
   {
+    id: 1,
     date: "0330",
     dayOfWeek: "목",
     title:
@@ -14,6 +15,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/xykoHF41?startPage=1&cornerType=LIFE_OBSERVATORY",
   },
   {
+    id: 2,
     date: "0405",
     dayOfWeek: "수",
     title: "'BTS 지민, 빌보드 찢었다' 핫 100 1위 ... K팝 솔로 최초",
@@ -25,6 +27,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/x2L1cNT1?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 3,
     date: "0403",
     dayOfWeek: "월",
     title: "이번에는 4050 트렌드다! 4050 소셜 트렌드 리포트",
@@ -36,6 +39,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/OrDUAOpf?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 4,
     date: "0317",
     dayOfWeek: "금",
     title: "인공지능의 한 획을 그은 대화형 서비스, 챗GPT",
@@ -47,6 +51,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/gck2V2Tp?startPage=1&cornerType=LIFE_OBSERVATORY",
   },
   {
+    id: 5,
     date: "0315",
     dayOfWeek: "금",
     title: "'검정고무신' 작가의 눈물 '비극이 된 기영이'",
@@ -58,6 +63,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/onM24vYX?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 6,
     date: "0327",
     dayOfWeek: "월",
     title: "AI가 알려주는 2023 마케팅 전략의 모든 것!",
@@ -69,6 +75,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/VG42hnep?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 7,
     date: "0306",
     dayOfWeek: "월",
     title: "마케터가 알면 좋은 ChatGPT 활용법, ‘ChatGPT’ 소셜 분석 리포트",
@@ -80,6 +87,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/OmOcWCG0?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 8,
     date: "0320",
     dayOfWeek: "월",
     title: "빅데이터로 보는 2023 S/S 트렌드 리포트",
@@ -91,6 +99,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/4dYygH8w?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 9,
     date: "0206",
     dayOfWeek: "월",
     title: "영화 'HER'이 현실이 되다? 인공지능 'ChatGPT' 파헤쳐 보기",
@@ -102,6 +111,7 @@ let sometrend = [
       "https://some.co.kr/contents/detail/IPo4QqQ7?startPage=1&cornerType=AI_REPORT",
   },
   {
+    id: 10,
     date: "0322",
     dayOfWeek: "수",
     title: "한국에 상륙한 '애플페이' 반응은?",
@@ -161,6 +171,44 @@ console.log(resultOfSort);
 console.log("============================================================");
 
 // post 부분 이해하고 다시 만들기
+// 게시물 렌더링하고 추가, 삭제하기
+const $contents = document.querySelector(".contents");
+
+function rendering(contentsArr) {
+  const toHTML = contentsArr
+    .map(
+      (content) => `<div class="content"><a href=${content.contentLink}>
+    <div><span>${content.date}</span><span>${content.dayOfWeek}</span></div>
+    <div>${content.title}</div>
+    <div>${content.tag}</div>
+    <div>${content.category}</div></a>
+    <button class="deleteBtn">DELETE</button></div>`
+    )
+    .join("");
+
+  $contents.innerHTML = toHTML;
+
+  const $deleteBtn = document.querySelectorAll(".deleteBtn");
+
+  $deleteBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      console.log(e.target.parentNode);
+      // const targetId = e.target.parentNode.getAttribute("data-role");
+      // console.log(targetId);
+      // const deleted = sometrend.filter(
+      //   (content) => content.id !== parseInt(targetId)
+      // );
+      // sometrend = deleted;
+      // rendering(deleted);
+      e.target.parentNode.remove();
+    });
+  });
+}
+
+rendering(sometrend);
+
+const $bgImgs = sometrend.map((el) => el.bgImg);
+console.log($bgImgs);
 
 // 8. 게시물 추가하기
 const newContent = {
