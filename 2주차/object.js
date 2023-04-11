@@ -225,9 +225,3 @@ const newContent = {
 };
 sometrend.push(newContent);
 console.log(sometrend);
-
-console.log("============================================================");
-
-// 9. 게시물 삭제하기
-sometrend.shift();
-console.log(sometrend);
