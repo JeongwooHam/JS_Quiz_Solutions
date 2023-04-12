@@ -1,0 +1,24 @@
+LV2. 예약번호 확인 하기
+
+1. 예약 고객 리스트는 js로 이미 import 되어 console.log에 찍어두었습니다.
+[예약번호 확인].addEventListener("submit", function(){
+    2. 고객 리스트에 없는 고객정보의 경우 일치하는 항목이 없습니다라는 console.log와 함께 텍스트가 나타납니다.
+         for~ 문 돌려서 if(!el[inputName]){return console.log('일치하는 항목이 없습니다.')}
+    3. 이름과 핸드폰 번호 모두 일치하지 않으면 고객은 검색할 수 없습니다.
+        - 이름은 존재하는 경우이므로
+        - inputName 기준으로 RESERVATION_LIST.filter
+        - 이후 inputPhoneNum과 일치하는 phone이 없는 경우 console.log('일치하는 내역이 없습니다.')
+    4. 고객데이터가 있으면 고객번호가 텍스트로 나타납니다
+        - 둘 다 있는 경우 number 출력 (reservation-number의 innerHTML에 넣어주기)
+})
+
+- 1번과 달리 input에 연락처 '010-1234-1234'로 입력
+
+📍구현화면 예시
+
+이름: [input]
+연락처: [input]
+
+[예약번호 확인]
+(name, phone 일치할 경우에만)
+number 만 출력
