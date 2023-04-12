@@ -49,8 +49,8 @@ $input.addEventListener("submit", function (e) {
     console.log(index);
     let targetForm = accountFormArr[index];
     console.log(targetForm);
-    for (let i in inputArr) {
-      targetForm = targetForm.replace("0", inputArr[i]);
+    for (let i of inputArr) {
+      targetForm = targetForm.replace("0", i);
     }
     console.log(targetForm);
 
