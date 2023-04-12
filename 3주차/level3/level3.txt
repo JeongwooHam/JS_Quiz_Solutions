@@ -1,0 +1,53 @@
+LV3. 레시피 추가 및 삭제 하기
+
+1. 레시피는 각각 재료와 무게를 입력하면 아래 테이블에 데이터가 추가됩니다.
+        - tr의 td들로 추가해주기
+        - 화면에는
+                재료명         |       용량         |       삭제버튼
+        - HTML에는
+                <tr scope="row">
+                        <td>재료명</td>
+                        <td>용량</td>
+                        <td><button>삭제</button></td>
+                </tr>
+        - js에서는 
+                `<tr>
+                <td>${$inputName}</td>
+                <td>${$inputWeight}</td>
+                <td><button type="button">삭제</button></td>
+                </tr>`   
+
+2. 같은 이름의 재료는 추가할 수 없습니다. ('이미 존재하는 재료입니다.')
+        let nameArr = [];
+        빈 배열 생성해서 $inputName push
+
+        if nameArr.includes($inputName) return alert('이미 존재하는 재료입니다.')
+
+3. 각각의 재료는 삭제버튼이 존재하며 삭제를 누르면 테이블에서 데이터가 삭제됩니다.
+        $deleteBtn.addEventListener('click', function(e){
+                e.target.parentNode = remove();
+        });
+
+4. 제출 버튼을 누르면 현재 테이블에 나와있는 데이터가 key: value와 같은 형태로 재료:무게로 나타납니다.
+        - $inputName, $inputWeight 사용해서 object 생성 
+                name: $inputName
+                weight: $inputWeight
+        - 배열(resultArr)에 담기
+        - resultHTML = resultArr.map((el) => {`<li>${el.name}: ${el.weight}</li>`}).join("");
+        - $resultArea.innerHTML = resultHTML;
+
+
+📍구현화면 예시
+
+재료명: [input]
+용량: [input]
+        - 숫자 + G >> 중복되는 재료는 입력될 수 없으므로 연산이 필요 없는 값. 앞의 숫자 부분 자료형 변환 필요 없음
+
+[추가]
+|       재료        |       무게        |       관리        |
+|                   |                  |      [삭제]       | >> 이미 있는 재료 입력 시 alert('이미 존재하는 재료입니다.')
+
+
+[제출]
+
+    ● 재료명: 무게
