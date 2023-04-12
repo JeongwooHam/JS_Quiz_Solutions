@@ -21,10 +21,9 @@ $submitBtn.addEventListener("click", function (e) {
   const nameArr = RESERVATION_LIST.map((el) => el.name);
   console.log(nameArr);
 
-  const sortedArr = RESERVATION_LIST.filter((el) => el.name === nameVal);
-  console.log(sortedArr);
-
-  const phoneNumArr = sortedArr.map((el) => el.phone);
+  const phoneNumArr = RESERVATION_LIST.filter((el) => el.name === nameVal).map(
+    (el) => el.phone
+  );
   console.log(phoneNumArr);
 
   if (!nameArr.includes(nameVal) || !phoneNumArr.includes(phoneNumVal))
