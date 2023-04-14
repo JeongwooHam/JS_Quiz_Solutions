@@ -71,9 +71,6 @@
       $inputSth.setAttribute("maxlength", 10);
 
       $inputSth.addEventListener("input", function () {
-          if(Number($inputSth.value)){
-            alert('숫자가 입력되었습니다.');
-          }
 
           let inputStr = $inputSth.value.split('').map((el) => parseInt(el));
           console.log(inputStr);
