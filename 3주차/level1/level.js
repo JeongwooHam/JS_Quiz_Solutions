@@ -7,9 +7,6 @@ console.log(ACCOUNT_FORM);
 const $select = document.querySelector("#bank-selector");
 const bankName = Object.values(BANK_LIST);
 console.log(bankName);
-const accountFormArr = Object.values(ACCOUNT_FORM);
-console.log(accountFormArr);
-const $accountList = document.querySelector("#account-list");
 
 let optionHTML = "";
 function selectOptions() {
@@ -33,6 +30,9 @@ $input.addEventListener("submit", function (e) {
     alert("12자리를 입력해주세요.");
   } else {
     // 입력된 계좌번호를 선택된 은행의 양식에 맞춰 출력하기
+    const accountFormArr = Object.values(ACCOUNT_FORM);
+    console.log(accountFormArr);
+    const $accountList = document.querySelector("#account-list");
     const $selectedBank = document.querySelector("#bank-selector");
 
     const inputArr = $inputAccount.value.split("");

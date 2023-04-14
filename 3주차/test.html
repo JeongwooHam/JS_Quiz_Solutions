@@ -58,9 +58,6 @@
         <ul id="list">
           <li class="liclass">list</li>
           <li class="liclass">list</li>
-          <li class="liclass">list</li>
-          <li class="liclass">list</li>
-          <li class="liclass">list</li>
         </ul>
       </form> 
         <input type="text" value="" width="600" id="list_index" name="content" />
@@ -73,10 +70,18 @@
 
       $inputSth.setAttribute("maxlength", 10);
 
-      $inputSth.addEventListener("keyup", function () {
+      $inputSth.addEventListener("input", function () {
           if(Number($inputSth.value)){
             alert('숫자가 입력되었습니다.');
           }
+
+          let inputStr = $inputSth.value.split('').map((el) => parseInt(el));
+          console.log(inputStr);
+
+          inputStr.forEach((el) => {
+            if(! isNaN(el)) { alert ('숫자가 입력되었습니다.')}
+          })
+          
       });
 
       // 5번
@@ -88,21 +93,26 @@
       const $editBtn = document.querySelector('#editBtn');
       const $deleteBtn = document.querySelector('#deleteBtn');
 
-      const $list = document.querySelectorAll(".liclass");
+      const $lists = document.querySelector("#list");
+      let $list = document.querySelectorAll("li");
 
-      let addedArr = [];
+      let addedArr = ['list', 'list'];
       
       $addList.addEventListener("submit", function(e){
           e.preventDefault();
           addedArr.push($input.value);
-          for(let i=0; i<= $list.length; i++){
-            $list[i].textContent = addedArr[i];
-          };
+          $lists.appendChild(document.createElement('li'));
+          $list = document.querySelectorAll("li");
+          console.log(addedArr);
+          console.log($list)
+          for(let i=0; i<addedArr.length; i++){
+            $list[i].textContent = addedArr[i]
+          }
       })
 
       $resetBtn.addEventListener("click", function(){
-        $list.forEach((el)=>el.textContent=""); 
-        addedArr=[];
+        $list.forEach((el) => el.remove());
+        addedArr = [];
       })
       
       // 6번
