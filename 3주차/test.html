@@ -43,7 +43,7 @@
         4. 아래의 입력창에 숫자가 입력되지 않도록 하고 길이 제한은 10자로 하시오. <br />숫자가 입력된다면 숫자가 입력되었다고 alert로
         알려주시오
       </p>
-      <input type="text" id="te_input" maxlength="10" placeholder="글자만 입력하세요." />
+      <input type="text" id="te_input" maxlength="9" placeholder="글자만 입력하세요." />
 
       <p>
         5.아래의 입력창에 입력 후 저장 버튼을 누르거나 엔터키를 누르면 입력한 내용이 아래의 list에 추가 되도록 하시오. <br />초기화 버튼을
@@ -70,6 +70,8 @@
     <script>
       // 4번
       const $inputSth = document.querySelector("#te_input");
+
+      $inputSth.setAttribute("maxlength", 10);
 
       $inputSth.addEventListener("keyup", function () {
           if(Number($inputSth.value)){
